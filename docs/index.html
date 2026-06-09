@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MitraDaya Inventory — WhatsApp-Powered Stock Management</title>
+  <meta name="description" content="A smart, multi-store inventory management system that uses WhatsApp as its primary interface. Track sales, stock mutations, receivables, and generate Excel reports — all through chat." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-icon">📦</span>
+        <span class="logo-text">MitraDaya<span class="logo-accent">Inventory</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#tech">Tech Stack</a>
+        <a href="https://github.com/jensenkosen1/PythonApplication1" target="_blank" class="nav-cta" id="nav-github-btn">View on GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        Open Source Project
+      </div>
+      <h1 class="hero-title">
+        Inventory Management<br/>
+        <span class="gradient-text">Powered by WhatsApp</span>
+      </h1>
+      <p class="hero-subtitle">
+        A smart, multi-store inventory system where your <strong>WhatsApp chat IS the interface</strong>.
+        Record sales, manage stock, track receivables, and receive Excel reports — all through a chat message.
+      </p>
+      <div class="hero-actions">
+        <a href="https://github.com/jensenkosen1/PythonApplication1" target="_blank" class="btn btn-primary" id="hero-github-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View Source Code
+        </a>
+        <a href="#features" class="btn btn-secondary" id="hero-explore-btn">
+          Explore Features
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card" id="stat-stores">
+          <span class="stat-number">2+</span>
+          <span class="stat-label">Store Locations</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card" id="stat-features">
+          <span class="stat-number">8+</span>
+          <span class="stat-label">Core Features</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card" id="stat-tables">
+          <span class="stat-number">7</span>
+          <span class="stat-label">Database Tables</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="mockup-phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">📦</div>
+            <div class="wa-info">
+              <div class="wa-name">Inventory Bot</div>
+              <div class="wa-status">● online</div>
+            </div>
+          </div>
+          <div class="wa-messages" id="wa-messages">
+            <div class="wa-bubble wa-sent">laporan TL</div>
+            <div class="wa-bubble wa-recv">
+              📦 <strong>Laporan Stok – TL</strong><br/>
+              Stok Awal&nbsp;&nbsp;&nbsp;: 1,240<br/>
+              Penjualan&nbsp;&nbsp;: 312<br/>
+              Migrasi Masuk: 50<br/>
+              Stok Akhir&nbsp;&nbsp;: 978<br/>
+              Status: ✅ OK
+            </div>
+            <div class="wa-bubble wa-recv wa-excel">
+              📎 <em>product_mutations_TL.xlsx</em>
+            </div>
+            <div class="wa-bubble wa-sent">stok as of 2025-11-01 TL</div>
+            <div class="wa-bubble wa-recv">
+              📦 <strong>Stok per 01-11-2025 – TL</strong><br/>
+              SABUN MANDI: 45<br/>
+              MINYAK GORENG: 120<br/>
+              GULA PASIR: 88<br/>
+              💰 Total: Rp 4,250,000
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-inner">
+      <div class="section-label">What It Does</div>
+      <h2 class="section-title">Everything your store needs,<br/><span class="gradient-text">delivered through chat</span></h2>
+      <p class="section-subtitle">Each feature is triggered by a simple WhatsApp message. No app to install. No dashboard to log into.</p>
+
+      <div class="features-grid">
+
+        <div class="feature-card feature-card--large" id="feat-whatsapp">
+          <div class="feature-icon-wrap" style="--c:#25D366">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.118 1.529 5.847L0 24l6.335-1.51A11.955 11.955 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9c-1.942 0-3.748-.524-5.293-1.436l-.379-.225-3.762.896.958-3.671-.247-.389A9.865 9.865 0 0 1 2.1 12c0-5.461 4.439-9.9 9.9-9.9 5.462 0 9.9 4.439 9.9 9.9 0 5.462-4.438 9.9-9.9 9.9z"/></svg>
+          </div>
+          <h3>WhatsApp as the Interface</h3>
+          <p>The entire system is controlled via WhatsApp messages. Send a command, get an instant formatted report — no GUI required. Works on any phone.</p>
+          <div class="feature-tag">Core Architecture</div>
+        </div>
+
+        <div class="feature-card" id="feat-inventory">
+          <div class="feature-icon-wrap" style="--c:#6366f1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Real-Time Stock Tracking</h3>
+          <p>Automatically calculates current inventory from initial stock, sales, migrations, and opname adjustments. Per-store and combined views.</p>
+        </div>
+
+        <div class="feature-card" id="feat-multistore">
+          <div class="feature-icon-wrap" style="--c:#f59e0b">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Multi-Store Support</h3>
+          <p>Manage multiple store locations independently. Each store (e.g., TL, MD) has its own inventory, sales records, and reports.</p>
+        </div>
+
+        <div class="feature-card" id="feat-excel">
+          <div class="feature-icon-wrap" style="--c:#10b981">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Excel Reports via Chat</h3>
+          <p>Generates detailed mutation reports as .xlsx files in memory and sends them directly as WhatsApp attachments. No disk writes needed.</p>
+        </div>
+
+        <div class="feature-card" id="feat-receivable">
+          <div class="feature-icon-wrap" style="--c:#ec4899">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <h3>Accounts Receivable</h3>
+          <p>Tracks credit sales (Piutang) and cash payments. Reconciles paid accounts and shows outstanding receivables at month-end.</p>
+        </div>
+
+        <div class="feature-card" id="feat-profit">
+          <div class="feature-icon-wrap" style="--c:#8b5cf6">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Profit Analytics</h3>
+          <p>Calculates total profit by comparing sales revenue against cost prices. Alerts when cost data is missing for any product.</p>
+        </div>
+
+        <div class="feature-card" id="feat-snapshot">
+          <div class="feature-icon-wrap" style="--c:#06b6d4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Historical Snapshots</h3>
+          <p>Query inventory as-of any past date. The system reconstructs stock levels using mutation history, so you can audit any point in time.</p>
+        </div>
+
+        <div class="feature-card" id="feat-ocr">
+          <div class="feature-icon-wrap" style="--c:#f97316">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3>OCR Integration</h3>
+          <p>Includes an OCR module to extract text from images sent via WhatsApp — enabling photo-based data entry for invoices and stock lists.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="section-inner">
+      <div class="section-label">Workflow</div>
+      <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+      <p class="section-subtitle">A simple pipeline from WhatsApp message to structured database report.</p>
+
+      <div class="steps-container">
+        <div class="step" id="step-1">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <div class="step-icon">💬</div>
+            <h3>Send a Command</h3>
+            <p>Type a command in WhatsApp — e.g., <code>laporan TL</code>, <code>stok as of 2025-11-01 TL</code>, or <code>mutasi dari 2025-10-01 MD</code>.</p>
+          </div>
+        </div>
+        <div class="step-connector"><div class="connector-line"></div></div>
+        <div class="step" id="step-2">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <div class="step-icon">⚙️</div>
+            <h3>Bridge Processes</h3>
+            <p>The WhatsApp Bridge receives the message, parses the command, and calls the Python inventory engine with the correct arguments.</p>
+          </div>
+        </div>
+        <div class="step-connector"><div class="connector-line"></div></div>
+        <div class="step" id="step-3">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <div class="step-icon">🗄️</div>
+            <h3>Database Query</h3>
+            <p>Python queries the SQLite database — calculating current stock, sales totals, receivables, and profit from the stored mutations.</p>
+          </div>
+        </div>
+        <div class="step-connector"><div class="connector-line"></div></div>
+        <div class="step" id="step-4">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <div class="step-icon">📤</div>
+            <h3>Reply + Excel</h3>
+            <p>A formatted text report is sent back to WhatsApp, along with an auto-generated Excel file (.xlsx) attached — all without touching disk.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section id="tech">
+    <div class="section-inner">
+      <div class="section-label">Built With</div>
+      <h2 class="section-title">Tech <span class="gradient-text">Stack</span></h2>
+      <p class="section-subtitle">Carefully chosen for simplicity, reliability, and zero infrastructure cost.</p>
+
+      <div class="tech-grid">
+        <div class="tech-card" id="tech-python">
+          <div class="tech-logo">🐍</div>
+          <div class="tech-info">
+            <h4>Python 3</h4>
+            <p>Core backend — inventory logic, report generation, WhatsApp command parsing.</p>
+          </div>
+        </div>
+        <div class="tech-card" id="tech-sqlite">
+          <div class="tech-logo">🗃️</div>
+          <div class="tech-info">
+            <h4>SQLite</h4>
+            <p>Lightweight, file-based relational database. 7 tables: products, sales, migrate, opname, receivable, paid, costlist.</p>
+          </div>
+        </div>
+        <div class="tech-card" id="tech-pandas">
+          <div class="tech-logo">🐼</div>
+          <div class="tech-info">
+            <h4>Pandas</h4>
+            <p>Data manipulation, CSV ingestion, DataFrame sorting, and Excel file generation via openpyxl.</p>
+          </div>
+        </div>
+        <div class="tech-card" id="tech-whatsapp">
+          <div class="tech-logo">💬</div>
+          <div class="tech-info">
+            <h4>WhatsApp Bridge</h4>
+            <p>Custom bridge layer that connects WhatsApp messages to the Python backend as the user interface.</p>
+          </div>
+        </div>
+        <div class="tech-card" id="tech-openpyxl">
+          <div class="tech-logo">📊</div>
+          <div class="tech-info">
+            <h4>OpenPyXL</h4>
+            <p>Generates Excel mutation reports in-memory (BytesIO), then sends them as file attachments — no temp files needed.</p>
+          </div>
+        </div>
+        <div class="tech-card" id="tech-ocr">
+          <div class="tech-logo">👁️</div>
+          <div class="tech-info">
+            <h4>OCR Engine</h4>
+            <p>Extracts structured data from photos sent over WhatsApp — enabling image-based stock entry.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATABASE SCHEMA -->
+  <section id="schema">
+    <div class="section-inner">
+      <div class="section-label">Data Model</div>
+      <h2 class="section-title">Database <span class="gradient-text">Schema</span></h2>
+      <p class="section-subtitle">Seven tables working together to give you a full picture of your inventory and finances.</p>
+      <div class="schema-grid">
+        <div class="schema-card" id="schema-products">
+          <div class="schema-table-name">📦 products / initial_products</div>
+          <div class="schema-fields">
+            <span class="field pk">id</span>
+            <span class="field">product_name</span>
+            <span class="field">price</span>
+            <span class="field">stock</span>
+            <span class="field">store / location</span>
+          </div>
+          <p class="schema-desc">Master product catalog with initial stock levels per store.</p>
+        </div>
+        <div class="schema-card" id="schema-sales">
+          <div class="schema-table-name">💰 sales</div>
+          <div class="schema-fields">
+            <span class="field pk">id</span>
+            <span class="field">date</span>
+            <span class="field">customer_name</span>
+            <span class="field">product_name</span>
+            <span class="field">quantity</span>
+            <span class="field">price</span>
+            <span class="field">subtotal</span>
+            <span class="field">method (CASH/PIUTANG)</span>
+            <span class="field">store</span>
+          </div>
+          <p class="schema-desc">Every sale transaction, with payment method tracking.</p>
+        </div>
+        <div class="schema-card" id="schema-migrate">
+          <div class="schema-table-name">🔄 migrate</div>
+          <div class="schema-fields">
+            <span class="field pk">id</span>
+            <span class="field">product_name</span>
+            <span class="field">quantity</span>
+            <span class="field">date</span>
+            <span class="field">store</span>
+          </div>
+          <p class="schema-desc">Stock movements between stores (BMBK transfers).</p>
+        </div>
+        <div class="schema-card" id="schema-opname">
+          <div class="schema-table-name">🔍 opname</div>
+          <div class="schema-fields">
+            <span class="field pk">id</span>
+            <span class="field">product_name</span>
+            <span class="field">price</span>
+            <span class="field">quantity</span>
+            <span class="field">date</span>
+            <span class="field">store</span>
+          </div>
+          <p class="schema-desc">Physical stock count adjustments and corrections.</p>
+        </div>
+        <div class="schema-card" id="schema-receivable">
+          <div class="schema-table-name">📋 receivable / paid</div>
+          <div class="schema-fields">
+            <span class="field pk">id</span>
+            <span class="field">date</span>
+            <span class="field">product_name</span>
+            <span class="field">subtotal</span>
+            <span class="field">status</span>
+            <span class="field">customer_name</span>
+          </div>
+          <p class="schema-desc">Accounts receivable — outstanding and settled credit sales.</p>
+        </div>
+        <div class="schema-card" id="schema-costlist">
+          <div class="schema-table-name">🏷️ costlist</div>
+          <div class="schema-fields">
+            <span class="field pk">id</span>
+            <span class="field">product_name</span>
+            <span class="field">price (buy price)</span>
+          </div>
+          <p class="schema-desc">Cost prices used to calculate profit margins per product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="cta-glow"></div>
+    <div class="section-inner cta-inner">
+      <h2 class="cta-title">Ready to explore the code?</h2>
+      <p class="cta-subtitle">Browse the full source, star the repo, or fork it to build your own WhatsApp-powered inventory system.</p>
+      <a href="https://github.com/jensenkosen1/PythonApplication1" target="_blank" class="btn btn-primary btn--large" id="cta-github-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">📦</span>
+        <span class="logo-text">MitraDaya<span class="logo-accent">Inventory</span></span>
+      </div>
+      <p class="footer-desc">A WhatsApp-powered inventory management system. Built with Python, SQLite, and Pandas.</p>
+      <div class="footer-links">
+        <a href="https://github.com/jensenkosen1/PythonApplication1" target="_blank" id="footer-github-link">GitHub Repository</a>
+      </div>
+      <p class="footer-copy">© 2025 MitraDaya Inventory. Open Source.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
